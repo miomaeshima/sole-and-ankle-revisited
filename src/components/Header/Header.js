@@ -6,9 +6,12 @@ import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
 import SearchInput from '../SearchInput';
+import UnstyledButton from '../UnstyledButton';
+import Icon from '../Icon';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
+  const [showSearchInput, setShowSearchInput] = React.useState(false);
 
   // For our mobile hamburger menu, we'll want to use a button
   // with an onClick handler, something like this:
@@ -31,9 +34,15 @@ const Header = () => {
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <SideForTabletOrBelow>
-          <Cart /> 
-          <SearchInput />
-          <MobileMenuButton />
+          <UnstyledButton>
+            <Icon id="shopping-bag" strokeWidth={1} />
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id="search" strokeWidth={1} />
+          </UnstyledButton>          
+          <UnstyledButton onClick={()=>setShowMobileMenu(true)}>
+            <Icon id="menu" strokeWidth={1} />
+          </UnstyledButton>
           </SideForTabletOrBelow>
       </MainHeader>
 
@@ -41,6 +50,7 @@ const Header = () => {
         isOpen={showMobileMenu}
         onDismiss={() => setShowMobileMenu(false)}
       />
+     
     </header>
   );
 };
@@ -88,14 +98,10 @@ const NavLink = styled.a`
 const SideForTabletOrBelow = styled.div`
   display: none;
   @media ${QUERIES.tabletOrBelow}{
-  display: revert;
+  display: flex;
+  gap: 40px;
+  
   }
-`;
-
-const Cart = styled.div`
-`;
-
-const MobileMenuButton = styled.button`
 `;
 
 export default Header;

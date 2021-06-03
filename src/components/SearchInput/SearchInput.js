@@ -32,6 +32,8 @@ const Input = styled.input`
   &::placeholder {
     color: ${COLORS.gray[500]};
   }
+
+  }
  `;
 
 const SearchIcon = styled(Icon)`
