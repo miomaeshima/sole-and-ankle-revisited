@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS, WEIGHTS, QUERIES } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
@@ -40,18 +40,28 @@ const Header = () => {
   );
 };
 
+
 const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media ${QUERIES.tabletAndDown}{
+  border-top: 4px solid ${COLORS.gray[900]};
+  }
+
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+  @media ${QUERIES.tabletAndDown}{
+  display: none;
+  }
+
 `;
 
 const Side = styled.div`
