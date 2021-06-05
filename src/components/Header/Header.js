@@ -34,7 +34,7 @@ const Header = () => {
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <SideForTabletOrBelow>
-          <UnstyledButton>
+         <UnstyledButton>
             <Icon id="shopping-bag" strokeWidth={1} />
           </UnstyledButton>
           <UnstyledButton>
@@ -43,7 +43,7 @@ const Header = () => {
           <UnstyledButton onClick={()=>setShowMobileMenu(true)}>
             <Icon id="menu" strokeWidth={1} />
           </UnstyledButton>
-          </SideForTabletOrBelow>
+        </SideForTabletOrBelow>
       </MainHeader>
 
       <MobileMenu
@@ -63,7 +63,7 @@ const MainHeader = styled.div`
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
-  @media ${QUERIES.tabletAndDown}{
+  @media ${QUERIES.tabletOrBelow}{
   border-top: 4px solid ${COLORS.gray[900]};
   }
 
@@ -73,6 +73,7 @@ const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+ 
   @media ${QUERIES.tabletOrBelow}{
   display: none;
   }
@@ -96,12 +97,18 @@ const NavLink = styled.a`
 `;
 
 const SideForTabletOrBelow = styled.div`
-  display: none;
-  @media ${QUERIES.tabletOrBelow}{
-  display: flex;
-  gap: 40px;
+    display: none;
   
+  @media ${QUERIES.tabletOrBelow}{
+    display: flex;
+    ${'' /* why gap does not work here?? */}
+    gap: 40px;
   }
+
+  @media ${QUERIES.phoneOrBelow}{
+    gap: 24px;
+  } 
+  
 `;
 
 export default Header;

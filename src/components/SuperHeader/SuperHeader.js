@@ -8,6 +8,7 @@ import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
 
 const SuperHeader = () => {
+  console.log(QUERIES)
   return (
     <Wrapper>
       <MarketingMessage>
@@ -33,9 +34,11 @@ const Wrapper = styled.div`
   padding-left: 32px;
   padding-right: 32px;
 
-  @media ${QUERIES.tabletOrBelow} {
+  @media ${QUERIES.tabletOrBelow}{
     display: none;
   }
+
+
 `;
 
 const MarketingMessage = styled.span`

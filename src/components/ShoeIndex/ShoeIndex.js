@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS } from '../../constants';
+import { WEIGHTS, QUERIES } from '../../constants';
 
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
@@ -9,12 +9,24 @@ import Spacer from '../Spacer';
 import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
 
+
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
     <Wrapper>
       <MainColumn>
         <Header>
-          <Title>Running</Title>
+          <TitleSection>
+          <div>
+            <Breadcrumbs>
+                <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
+                <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
+                <Breadcrumbs.Crumb href="/sale/shoes">
+                  Shoes
+                </Breadcrumbs.Crumb>
+            </Breadcrumbs>
+            </div>
+            <Title>Running</Title>
+          </TitleSection>
           <Select
             label="Sort"
             value={sortId}
@@ -51,6 +63,10 @@ const Wrapper = styled.div`
 
 const LeftColumn = styled.div`
   flex-basis: 248px;
+
+  @media ${QUERIES.tabletOrBelow}{
+    display:none;
+  }
 `;
 
 const MainColumn = styled.div`
@@ -61,11 +77,29 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  
+  @media ${QUERIES.tabletOrBelow}{
+    align-items: center;
+  }
 `;
 
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
 `;
+
+const TitleSection = styled.div`
+${'' /* Why neither &>Breadcrumbs or &:first-child does not work? */}
+    &>div{
+      display:none;
+    } 
+
+ @media ${QUERIES.tabletOrBelow}{
+    &>div{
+      display:revert;
+    }
+ }
+`;
+
 
 export default ShoeIndex;
