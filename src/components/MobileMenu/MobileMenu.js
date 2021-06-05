@@ -10,14 +10,20 @@ import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
-  if (!isOpen) {
-    return null;
-  }
+
 
   return (
-    <div>
-      <button onClick={onDismiss}>Dismiss menu</button>
-      <nav>
+    <Overlay
+   
+    
+     
+     >
+    
+    
+      <button onClick={onDismiss}>Dismiss menu
+      
+      </button>
+        <nav>
         <a href="/sale">Sale</a>
         <a href="/new">New&nbsp;Releases</a>
         <a href="/men">Men</a>
@@ -30,8 +36,16 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
         <a href="/privacy">Privacy Policy</a>
         <a href="/contact">Contact Us</a>
       </footer>
-    </div>
+      {/* </Content>
+        </Overlay> */}
+        </Overlay>
   );
 };
 
+const Overlay = styled(DialogOverlay)`
+background: hsla(0deg, 0%, 0%, 0.5)
+`;
+
+const Content = styled(DialogContent)`
+`;
 export default MobileMenu;
