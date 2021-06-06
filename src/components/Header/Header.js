@@ -5,18 +5,21 @@ import { COLORS, WEIGHTS, QUERIES } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
-import SearchInput from '../SearchInput';
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
 
+
+
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
-  const [showSearchInput, setShowSearchInput] = React.useState(false);
-
+  console.log(showMobileMenu)
   // For our mobile hamburger menu, we'll want to use a button
   // with an onClick handler, something like this:
   //
   // <button onClick={() => setShowMobileMenu(true)}>
+
+
+
 
   return (
     <header>
@@ -39,17 +42,18 @@ const Header = () => {
           </UnstyledButton>
           <UnstyledButton>
             <Icon id="search" strokeWidth={1} />
-          </UnstyledButton>          
+          </UnstyledButton>              
           <UnstyledButton onClick={()=>setShowMobileMenu(true)}>
             <Icon id="menu" strokeWidth={1} />
           </UnstyledButton>
         </SideForTabletOrBelow>
+          
       </MainHeader>
-
-      <MobileMenu
+      <MobileMenu      
         isOpen={showMobileMenu}
         onDismiss={() => setShowMobileMenu(false)}
       />
+
      
     </header>
   );
