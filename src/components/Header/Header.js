@@ -42,18 +42,17 @@ const Header = () => {
           </UnstyledButton>
           <UnstyledButton>
             <Icon id="search" strokeWidth={1} />
-          </UnstyledButton>  
-                  
-            <UnstyledButton onClick={()=>setShowMobileMenu(true)}>
-              <Icon id="menu" strokeWidth={1} />
-            </UnstyledButton>
-            <MobileMenu      
-              isOpen={showMobileMenu}
-              onDismiss={() => setShowMobileMenu(false)}
-            />
-          
+          </UnstyledButton>              
+          <UnstyledButton onClick={()=>setShowMobileMenu(true)}>
+            <Icon id="menu" strokeWidth={1} />
+          </UnstyledButton>
         </SideForTabletOrBelow>
+          
       </MainHeader>
+      <MobileMenu      
+        isOpen={showMobileMenu}
+        onDismiss={() => setShowMobileMenu(false)}
+      />
 
      
     </header>
