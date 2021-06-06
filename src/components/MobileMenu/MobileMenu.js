@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 
-import { QUERIES } from '../../constants';
+import { COLORS, WEIGHTS, QUERIES } from '../../constants';
 
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
@@ -24,8 +24,10 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
         <Icon id="close" strokeWidth={1} />      
       </UnstyledButton>
       </ ButtonWrapper>
+
       <Main>
-        <Nav>
+      <TopSpacer></TopSpacer>
+      <Nav>
         <a href="/sale">Sale</a>
         <a href="/new">New&nbsp;Releases</a>
         <a href="/men">Men</a>
@@ -33,6 +35,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
         <a href="/kids">Kids</a>
         <a href="/collections">Collections</a>
       </Nav>
+      <MidSpacer></MidSpacer>
       <Footer>
         <a href="/terms">Terms and Conditions</a>
         <a href="/privacy">Privacy Policy</a>
@@ -52,7 +55,7 @@ left:0;
 right: 0;
 bottom: 0;
 
-background: pink;
+background: ${COLORS.overlay};
 display: flex;
 justify-content: flex-end;
 `;
@@ -64,6 +67,9 @@ height: 100%;
 width: calc(300/16*1rem);
 display: flex;
 flex-directin: column;
+align-items: flex-end;
+padding-left: 32px;
+padding-bottom: 32px;
 `;
 
 const ButtonWrapper = styled.div`
@@ -75,17 +81,46 @@ right: 22px;
 const Main = styled.div`
 display: flex;
 flex-direction: column;
+height: 100%;
+
+ & a{
+   text-decoration: none;
+   color:inherit;
+   text-transform: uppercase;
+ }
 
 `;
 
 const Nav = styled.nav`
 display: flex;
 flex-direction: column;
-
+& a{
+  font-size: calc(18/16*1rem);
+  margin-bottom: calc(22/16*1rem);
+  font-weight: ${WEIGHTS.medium};
+  &:first-of-type{
+    color: ${COLORS.secondary}
+  }
+}
 `;
 
 const Footer = styled.footer`
 display: flex;
 flex-direction: column;
+
+& a{
+  font-size: calc(14/16*1rem);
+  color: ${COLORS.gray[700]};
+  margin-top: calc(14/16*1rem);
+  font-weight: ${WEIGHTS.normal};
+};
+`;
+
+const TopSpacer = styled.div`
+  flex:2;
+`;
+
+const MidSpacer = styled.div`
+  flex:1;
 `;
 export default MobileMenu;
