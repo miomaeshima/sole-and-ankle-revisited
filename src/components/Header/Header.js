@@ -22,7 +22,7 @@ const Header = () => {
 
 
   return (
-    <header>
+    <header> 
       <SuperHeader />
       <MainHeader>
         <Side>
@@ -61,11 +61,16 @@ const Header = () => {
 
 
 const MainHeader = styled.div`
+  position: relative;
+  
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
+  
+  height: 80x;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow-x: auto;
+
 
   @media ${QUERIES.tabletOrBelow}{
   border-top: 4px solid ${COLORS.gray[900]};
@@ -75,9 +80,11 @@ const MainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
-  margin: 0px 48px;
- 
+  margin-left: 100px;
+  flex: 1;
+  justify-content: space-evenly;
+
+  
   @media ${QUERIES.tabletOrBelow}{
   display: none;
   }
@@ -85,7 +92,9 @@ const Nav = styled.nav`
 `;
 
 const Side = styled.div`
-  flex: 1;
+   position: 
+
+  ${'' /* flex: 1; */}
 `;
 
 const NavLink = styled.a`
@@ -94,6 +103,7 @@ const NavLink = styled.a`
   text-decoration: none;
   color: ${COLORS.gray[900]};
   font-weight: ${WEIGHTS.medium};
+
 
   &:first-of-type {
     color: ${COLORS.secondary};
