@@ -56,6 +56,7 @@ const MainHeader = styled.div`
   
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
   padding: 18px 32px;
   
   height: 80x;
@@ -80,9 +81,7 @@ const Nav = styled.nav`
   }
 `;
 
-const Side = styled.div`
-  position: ${"" /* flex: 1; */};
-`;
+const Side = styled.div``;
 
 const NavLink = styled.a`
   font-size: 1.125rem;
